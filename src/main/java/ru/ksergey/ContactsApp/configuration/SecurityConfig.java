@@ -52,13 +52,13 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(req -> req
-                        .requestMatchers("/api/v1/auth/**")
+                        .requestMatchers("/api/auth/**")
                         .permitAll()
 
-                        .requestMatchers("/api/v1/admin")
+                        .requestMatchers("/api/admin")
                         .hasAnyAuthority(AppRole.ADMIN.name())
 
-                        .requestMatchers("/api/v1/user")
+                        .requestMatchers("/api/user")
                         .hasAnyAuthority(AppRole.USER.name())
                         .anyRequest().authenticated())
 
