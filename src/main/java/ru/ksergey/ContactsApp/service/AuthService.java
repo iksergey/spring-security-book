@@ -2,17 +2,23 @@ package ru.ksergey.ContactsApp.service;
 
 import java.util.HashMap;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.server.ResponseStatusException;
 import ru.ksergey.ContactsApp.enums.AppRole;
 import ru.ksergey.ContactsApp.model.AppUser;
 import ru.ksergey.ContactsApp.modelDto.LoginRequestDto;
 import ru.ksergey.ContactsApp.modelDto.LoginResponseDto;
+import ru.ksergey.ContactsApp.modelDto.RefreshTokenRequestDto;
+import ru.ksergey.ContactsApp.modelDto.RefreshTokenResponseDto;
 import ru.ksergey.ContactsApp.modelDto.RegisterRequestDto;
 import ru.ksergey.ContactsApp.repository.AppUserRepository;
 import ru.ksergey.ContactsApp.service.jwt.JwtSecurityService;
@@ -37,7 +43,8 @@ public class AuthService {
     }
 
     public LoginResponseDto login(LoginRequestDto loginRequestDto) {
-        authenticationManager.authenticate(
+
+        Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         loginRequestDto.getEmail(),
                         loginRequestDto.getPassword()));
