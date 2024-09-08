@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import ru.ksergey.ContactsApp.model.AppUser;
 import ru.ksergey.ContactsApp.modelDto.LoginRequestDto;
 import ru.ksergey.ContactsApp.modelDto.LoginResponseDto;
+import ru.ksergey.ContactsApp.modelDto.RefreshTokenRequestDto;
+import ru.ksergey.ContactsApp.modelDto.RefreshTokenResponseDto;
 import ru.ksergey.ContactsApp.modelDto.RegisterRequestDto;
 import ru.ksergey.ContactsApp.service.AuthService;
 
@@ -30,4 +32,8 @@ public class AuthController {
         return ResponseEntity.ok(authService.login(loginRequestDto));
     }
 
+    @PostMapping("/refresh")
+    public ResponseEntity<RefreshTokenResponseDto> refresh(@RequestBody RefreshTokenRequestDto refreshTokenRequestDto) {
+        return ResponseEntity.ok(authService.refresh(refreshTokenRequestDto));
+    }
 }

@@ -63,4 +63,28 @@ public class AuthService {
                 .refreshToken(refreshToken)
                 .build();
     }
+
+    public RefreshTokenResponseDto refresh(RefreshTokenRequestDto refreshTokenRequestDto) {
+        String jwt = refreshTokenRequestDto.getRefreshToken();
+        String email = jwtSecurityService.extractUsername(jwt);
+        AppUser user = appUserRepository
+                .findByEmail(email)
+                .orElseThrow();
+
+        if (jwtSecurityService.validateToken(jwt, user)) {
+            RefreshTokenResponseDto refreshTokenResponseDto = new RefreshTokenResponseDto();
+
+            refreshTokenResponseDto
+                    .setJwtToken(
+                            jwtSecurityService.generateToken(user));
+
+            refreshTokenResponseDto
+                    .setRefreshToken(
+                            jwtSecurityService.generateRefreshToken(new HashMap<>(), user));
+
+            return refreshTokenResponseDto;
+        }
+
+        return null;
+    }
 }
