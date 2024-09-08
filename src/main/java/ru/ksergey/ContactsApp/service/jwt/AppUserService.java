@@ -1,5 +1,6 @@
 package ru.ksergey.ContactsApp.service.jwt;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -13,6 +14,7 @@ import ru.ksergey.ContactsApp.repository.AppUserRepository;
 @RequiredArgsConstructor
 public class AppUserService {
 
+    @Autowired
     private AppUserRepository appUserRepository;
 
     public UserDetailsService getDetailsService() {
