@@ -23,8 +23,8 @@ import ru.ksergey.ContactsApp.service.jwt.JwtSecurityService;
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-    private JwtSecurityService jwtSecurityService;
-    private AppUserService appUserService;
+    private final JwtSecurityService jwtSecurityService;
+    private final AppUserService appUserService;
 
     @Override
     protected void doFilterInternal(
