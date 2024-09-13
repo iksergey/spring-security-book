@@ -1,5 +1,3 @@
-# Spring Security Book
-
 - [Начало. Описание проекта](./step-01-p1.md)
 - [Конфигурация и зависимости](./step-02-p1.md)
 - [К чему стремиться](./step-02-p2.md)
@@ -8,7 +6,7 @@
 - [JWT (JSON Web Token) ](./step-05-about-jwt.md)
 - [Описание сервиса для работы с JWT](./step-05.md)
 - [Опишем AppUserService](./step-06.md)
-- [Опишем AppUserService](./step-07.md)
+- [Опишем JwtAuthenticationFilter](./step-07.md)
 - [Опишем SecurityConfig](./step-08.md)
 - [CSRF и CORS](./step-08-csrf-cors.md)
 - [Попытка регистрации](./step-09.md) \| [Замечание](./step-09-comment.md)

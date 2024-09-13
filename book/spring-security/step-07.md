@@ -1,4 +1,4 @@
-## Опишем AppUserService
+## Опишем JwtAuthenticationFilter
 
 В пакет `configuration` добавим класс `JwtAuthenticationFilter`
 
