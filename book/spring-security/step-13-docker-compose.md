@@ -25,44 +25,44 @@
 
 3. Скопируйте следующее содержимое в `compose.yaml`:
 
-   ```yaml
-    version: '3.8'
+```yaml
+version: '3.8'
 
-    services:
-    mysql:
-        image: mysql:8.0
-        container_name: mysql_db
-        environment:
-        MYSQL_ROOT_PASSWORD: 12345678
-        MYSQL_DATABASE: contacts_db
-        ports:
-        - "4444:3306"
-        volumes:
-        - mysql_data:/var/lib/mysql
-        healthcheck:
-        test: [ "CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p12345678" ]
-        interval: 10s
-        timeout: 5s
-        retries: 5
-        start_period: 40s
-
-    app:
-        build: .
-        container_name: contacts_app
-        ports:
-        - "8080:8080"
-        environment:
-        SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/contacts_db
-        SPRING_DATASOURCE_USERNAME: root
-        SPRING_DATASOURCE_PASSWORD: 12345678
-        depends_on:
-        mysql:
-            condition: service_healthy
-        restart: on-failure
-
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: contacts_db
+    ports:
+      - "4444:3306"
     volumes:
-    mysql_data:
-   ```
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p12345678" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 40s
+
+  app:
+    build: .
+    container_name: contacts_app
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/contacts_db
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 12345678
+    depends_on:
+      mysql:
+        condition: service_healthy
+    restart: on-failure
+
+volumes:
+  mysql_data:
+```
 
 При необходимости внесите изменения в соответствии с вашим окружением
 
