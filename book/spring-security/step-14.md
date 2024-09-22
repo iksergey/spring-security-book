@@ -2,6 +2,39 @@
 
 ❗️ Перед обновлением создайте отдельную ветку с вашим приложением
 
+### Структура файлов и папок
+
+```
+SecurityApp
+├── configuration
+│   ├── JwtAuthenticationFilter.java
+│   ├── SecurityConfig.java
+│   └── SwaggerConfig.java
+├── controllers
+│   ├── AdminController.java
+│   ├── AuthController.java
+│   ├── TokenValidationController.java
+│   └── UserController.java
+├── enums
+│   └── AppRole.java
+├── model
+│   └── AppUser.java
+├── modelDto
+│   ├── LoginRequestDto.java
+│   ├── LoginResponseDto.java
+│   ├── RefreshTokenRequestDto.java
+│   ├── RefreshTokenResponseDto.java
+│   └── RegisterRequestDto.java
+├── repository
+│   └── AppUserRepository.java
+├── service
+│   ├── jwt
+│   │   ├── AppUserService.java
+│   │   └── JwtSecurityService.java
+│   └── AuthService.java
+└── SecurityAppApplication.java
+```
+
 ### Шаг 1: Изменение базового пакета
 
 Первым делом нам нужно изменить базовый пакет проекта с `ContactsApp` на `SecurityApp`. Это поможет устранить путаницу и лучше отразить назначение нашего приложения.
