@@ -1,4 +1,4 @@
-package ru.ksergey.ContactsApp.enums;
+package ru.ksergey.SecurityApp.enums;
 
 public enum AppRole {
     ADMIN,

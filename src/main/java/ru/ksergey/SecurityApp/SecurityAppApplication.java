@@ -1,4 +1,4 @@
-package ru.ksergey.ContactsApp;
+package ru.ksergey.SecurityApp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -6,18 +6,18 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import ru.ksergey.ContactsApp.enums.AppRole;
-import ru.ksergey.ContactsApp.model.AppUser;
-import ru.ksergey.ContactsApp.repository.AppUserRepository;
+import ru.ksergey.SecurityApp.enums.AppRole;
+import ru.ksergey.SecurityApp.model.AppUser;
+import ru.ksergey.SecurityApp.repository.AppUserRepository;
 
 @SpringBootApplication
-public class ContactsAppApplication implements CommandLineRunner {
+public class SecurityAppApplication implements CommandLineRunner {
 
     @Autowired
     private AppUserRepository appUserRepository;
 
     public static void main(String[] args) {
-        SpringApplication.run(ContactsAppApplication.class, args);
+        SpringApplication.run(SecurityAppApplication.class, args);
     }
 
     @Override

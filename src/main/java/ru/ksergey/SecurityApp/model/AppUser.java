@@ -1,4 +1,4 @@
-package ru.ksergey.ContactsApp.model;
+package ru.ksergey.SecurityApp.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,7 +9,7 @@ import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import ru.ksergey.ContactsApp.enums.AppRole;
+import ru.ksergey.SecurityApp.enums.AppRole;
 
 import java.util.Collection;
 import java.util.List;

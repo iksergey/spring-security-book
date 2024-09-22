@@ -1,4 +1,4 @@
-package ru.ksergey.ContactsApp.service.jwt;
+package ru.ksergey.SecurityApp.service.jwt;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -7,8 +7,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import ru.ksergey.ContactsApp.model.AppUser;
-import ru.ksergey.ContactsApp.repository.AppUserRepository;
+import ru.ksergey.SecurityApp.model.AppUser;
+import ru.ksergey.SecurityApp.repository.AppUserRepository;
 
 @Service
 @RequiredArgsConstructor

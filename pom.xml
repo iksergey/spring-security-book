@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>ru.ksergey</groupId>
-	<artifactId>ContactsApp</artifactId>
+	<artifactId>SecurityApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ContactsApp</name>
 	<description>Project for Spring Boot</description>

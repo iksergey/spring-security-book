@@ -1,4 +1,4 @@
-package ru.ksergey.ContactsApp.configuration;
+package ru.ksergey.SecurityApp.configuration;
 
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.Bean;
@@ -18,8 +18,8 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import lombok.RequiredArgsConstructor;
-import ru.ksergey.ContactsApp.enums.AppRole;
-import ru.ksergey.ContactsApp.service.jwt.AppUserService;
+import ru.ksergey.SecurityApp.enums.AppRole;
+import ru.ksergey.SecurityApp.service.jwt.AppUserService;
 
 @Configuration
 @EnableWebSecurity

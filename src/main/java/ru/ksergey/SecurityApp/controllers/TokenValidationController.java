@@ -1,11 +1,11 @@
-package ru.ksergey.ContactsApp.controllers;
+package ru.ksergey.SecurityApp.controllers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
-import ru.ksergey.ContactsApp.service.jwt.JwtSecurityService;
+import ru.ksergey.SecurityApp.service.jwt.JwtSecurityService;
 
 @RestController
 @RequiredArgsConstructor

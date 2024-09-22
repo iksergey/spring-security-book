@@ -1,4 +1,4 @@
-package ru.ksergey.ContactsApp.modelDto;
+package ru.ksergey.SecurityApp.modelDto;
 
 import lombok.Builder;
 import lombok.Data;

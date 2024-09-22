@@ -1,16 +1,16 @@
-package ru.ksergey.ContactsApp.controllers;
+package ru.ksergey.SecurityApp.controllers;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
-import ru.ksergey.ContactsApp.model.AppUser;
-import ru.ksergey.ContactsApp.modelDto.LoginRequestDto;
-import ru.ksergey.ContactsApp.modelDto.LoginResponseDto;
-import ru.ksergey.ContactsApp.modelDto.RefreshTokenRequestDto;
-import ru.ksergey.ContactsApp.modelDto.RefreshTokenResponseDto;
-import ru.ksergey.ContactsApp.modelDto.RegisterRequestDto;
-import ru.ksergey.ContactsApp.service.AuthService;
+import ru.ksergey.SecurityApp.model.AppUser;
+import ru.ksergey.SecurityApp.modelDto.LoginRequestDto;
+import ru.ksergey.SecurityApp.modelDto.LoginResponseDto;
+import ru.ksergey.SecurityApp.modelDto.RefreshTokenRequestDto;
+import ru.ksergey.SecurityApp.modelDto.RefreshTokenResponseDto;
+import ru.ksergey.SecurityApp.modelDto.RegisterRequestDto;
+import ru.ksergey.SecurityApp.service.AuthService;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

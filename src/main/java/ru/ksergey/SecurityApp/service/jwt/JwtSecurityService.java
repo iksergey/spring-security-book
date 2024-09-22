@@ -1,4 +1,4 @@
-package ru.ksergey.ContactsApp.service.jwt;
+package ru.ksergey.SecurityApp.service.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

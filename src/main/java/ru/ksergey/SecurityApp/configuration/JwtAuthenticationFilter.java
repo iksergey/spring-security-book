@@ -1,4 +1,4 @@
-package ru.ksergey.ContactsApp.configuration;
+package ru.ksergey.SecurityApp.configuration;
 
 import java.io.IOException;
 
@@ -16,8 +16,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
-import ru.ksergey.ContactsApp.service.jwt.AppUserService;
-import ru.ksergey.ContactsApp.service.jwt.JwtSecurityService;
+import ru.ksergey.SecurityApp.service.jwt.AppUserService;
+import ru.ksergey.SecurityApp.service.jwt.JwtSecurityService;
 
 @Component
 @RequiredArgsConstructor

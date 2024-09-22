@@ -1,10 +1,10 @@
-package ru.ksergey.ContactsApp;
+package ru.ksergey.SecurityApp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ContactsAppApplicationTests {
+class SecurityAppApplicationTests {
 
 	@Test
 	void contextLoads() {
