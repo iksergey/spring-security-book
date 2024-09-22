@@ -16,8 +16,8 @@ COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
 COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
 COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /app
 
-ENV SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:4444/contacts_db
+ENV SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:4445/contacts_db
 ENV SPRING_DATASOURCE_USERNAME=root
 ENV SPRING_DATASOURCE_PASSWORD=12345678
 
-ENTRYPOINT ["java","-cp","app:app/lib/*","ru.ksergey.ContactsApp.ContactsAppApplication"]
+ENTRYPOINT ["java","-cp","app:app/lib/*","ru.ksergey.SecurityApp.SecurityAppApplication"]
