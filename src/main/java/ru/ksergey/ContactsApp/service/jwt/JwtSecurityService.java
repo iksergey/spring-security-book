@@ -3,6 +3,8 @@ package ru.ksergey.ContactsApp.service.jwt;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import lombok.RequiredArgsConstructor;
+
 import org.springframework.stereotype.Service;
 import io.jsonwebtoken.io.Decoders;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,9 +15,11 @@ import java.util.Map;
 import java.util.function.Function;
 
 @Service
+@RequiredArgsConstructor
 public class JwtSecurityService {
 
     private static final String SECRET_KEY = "6yU3AaLTrj/YSKQtYF6yU3/YSKAaLTIv9aRtGxOcU39h7T/aRtGxO+syA=";
+    private final AppUserService appUserService;
 
     private SecretKey getSigningKey() {
         byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY);
@@ -80,5 +84,23 @@ public class JwtSecurityService {
         final String username = extractUsername(token);
         return (username.equals(userDetails.getUsername())
                 && !isTokenExpired(token));
+    }
+
+    public boolean validateTokenFromHeader(String authHeader) {
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            return false;
+        }
+
+        String token = authHeader.substring(7);
+
+        try {
+            String username = extractUsername(token);
+            UserDetails userDetails = appUserService
+                    .getDetailsService()
+                    .loadUserByUsername(username);
+            return validateToken(token, userDetails);
+        } catch (Exception e) {
+            return false;
+        }
     }
 }
