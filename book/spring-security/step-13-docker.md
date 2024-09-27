@@ -21,6 +21,7 @@
 
 2. Скопируйте следующее содержимое в `dockerfile`:
 
+mvnw:
    ```yaml
    FROM eclipse-temurin:22-jdk-alpine as build
    WORKDIR /workspace/app
@@ -44,6 +45,38 @@
    ENV SPRING_DATASOURCE_USERNAME=root
    ENV SPRING_DATASOURCE_PASSWORD=12345678
 
+   ENTRYPOINT ["java","-cp","app:app/lib/*","ru.ksergey.ContactsApp.ContactsAppApplication"]
+   ```
+
+gradle:
+
+   ```yaml
+   FROM eclipse-temurin:22-jdk-alpine as build
+   WORKDIR /workspace/app
+   
+   COPY gradlew .
+   COPY gradle gradle
+   COPY build.gradle .
+   COPY settings.gradle .
+   
+   COPY src src
+   
+   RUN ./gradlew build -x test
+   
+   RUN mkdir -p build/dependency && (cd build/dependency; jar -xf ../libs/*.jar)
+   
+   FROM eclipse-temurin:22-jre-alpine
+   VOLUME /tmp
+   ARG DEPENDENCY=/workspace/app/build/dependency
+   
+   COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
+   COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
+   COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /app
+   
+   ENV SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:4444/contacts_db
+   ENV SPRING_DATASOURCE_USERNAME=root
+   ENV SPRING_DATASOURCE_PASSWORD=12345678
+   
    ENTRYPOINT ["java","-cp","app:app/lib/*","ru.ksergey.ContactsApp.ContactsAppApplication"]
    ```
 При необходимости внесите изменения в соответствии с вашим окружением
@@ -83,3 +116,4 @@
 - При возникновении проблем проверьте логи контейнера с помощью команды `docker logs <ID_контейнера>`.
 
 [Попробовать что-то большее \>\> ](./step-13-docker-compose.md)
+
